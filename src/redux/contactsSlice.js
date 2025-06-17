@@ -4,16 +4,7 @@ import { addContact, deleteContact, fetchContacts } from "./contactsOps";
 const slice = createSlice({
   name: "contacts",
   initialState: { items: [], loading: false, error: null },
-  reducers: {
-    addContact: (state, action) => {
-      state.items.push(action.payload);
-    },
-    deleteContact: (state, action) => {
-      state.items = state.items.filter(
-        (contact) => contact.id !== action.payload
-      );
-    },
-  },
+
   extraReducers: (builder) =>
     builder
       .addCase(fetchContacts.pending, (state) => {
